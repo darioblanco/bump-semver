@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # config
-default_semvar_bump=${DEFAULT_BUMP:-minor}
+default_semvar_bump=${DEFAULT_BUMP:-patch}
 with_v=${WITH_V:-false}
 release_branches=${RELEASE_BRANCHES:-master}
-custom_tag=${CUSTOM_TAG}
+prefix=${PREFIX}
 
 pre_release="true"
 IFS=',' read -ra branch <<< "$release_branches"
@@ -62,9 +62,9 @@ then
     new="$new-${commit:0:7}"
 fi
 
-if [ ! -z $custom_tag ]
+if [ ! -z $prefix ]
 then
-    new="$custom_tag"
+    new="$prefix-$new"
 fi
 
 echo $new
