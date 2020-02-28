@@ -39,12 +39,13 @@ fi
 # get commit logs and determine home to bump the version
 # supports #major, #minor, #patch (anything else will be 'minor')
 case "$LOG" in
-    *#major* ) NEW=$(semver bump major $TAG);;
-    *#minor* ) NEW=$(semver bump minor $TAG);;
-    *#patch* ) NEW=$(semver bump patch $TAG);;
-    * ) NEW=$(semver bump $DEFAULT_BUMP $TAG);;
+    *#major* ) VERSION=$(semver bump major $TAG);;
+    *#minor* ) VERSION=$(semver bump minor $TAG);;
+    *#patch* ) VERSION=$(semver bump patch $TAG);;
+    * ) VERSION=$(semver bump $DEFAULT_BUMP $TAG);;
 esac
 
+NEW=$VERSION
 # prefix with 'v'
 if $WITH_V
 then
@@ -61,6 +62,7 @@ echo "$NEW"
 # set outputs
 echo "::set-output name=new_tag::$NEW"
 echo "::set-output name=tag::$NEW"
+echo "::set-output name=version::$VERSION"
 
 # push new tag ref to github
 DT=$(date '+%Y-%m-%dT%H:%M:%SZ')

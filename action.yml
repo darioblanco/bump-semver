@@ -22,9 +22,11 @@ inputs:
     default: 'true'
 outputs:
   new_tag:
-    description: 'Generated tag'
+    description: 'The generated tag (including prefix)'
   tag:
     description: 'The latest tag after running this action'
+  version:
+    description: 'The semantic version without any "v" or other prefixes'
 branding:
   icon: 'git-merge'
   color: 'purple'
