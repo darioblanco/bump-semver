@@ -1,6 +1,6 @@
 # github-tag-action
 
-A Github Action to automatically bump and tag master, on merge, with the latest
+A Github Action to automatically bump and tag master with the latest
 SemVer formatted version.
 
 ## Usage
@@ -30,14 +30,14 @@ jobs:
 * **token** ***(required)*** - Required for permission to tag the repo.
 * **defaultBump** *(optional)* - Which type of bump to use when none explicitly
 provided (default: `patch`).
-* **withV** *(optional)* - Tag version with `v` character.
 * **prefix** *(optional)* - Appends the given prefix to the tag
-(e.g. PREFIX=myprefix would create a myprefix-v1.0.0 tag)
+(e.g. PREFIX=myprefix would create a myprefix-1.0.0 tag)
+* **withV** *(optional)* - Tag version with `v` character.
 
 ### Outputs
 
-* **new_tag** - The value of the newly created tag.
-* **tag** - The value of the latest tag after running this action.
+* **tag** - The latest tag after running this action.
+* **version** - The semantic version without any "v" or other prefixes.
 
 > ***Note:*** This action creates a [lightweight tag](https://developer.github.com/v3/git/refs/#create-a-reference).
 
@@ -65,3 +65,4 @@ the commit messages, it will bump whichever `DEFAULT_BUMP` is set to (which is `
 ## Credits
 
 [fsaintjacques/semver-tool](https://github.com/fsaintjacques/semver-tool)
+[anothrNick/github-tag-action](https://github.com/anothrNick/github-tag-action)

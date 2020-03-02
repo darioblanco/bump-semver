@@ -71,7 +71,6 @@ fi
 echo "$NEW"
 
 # set outputs
-echo "::set-output name=new_tag::$NEW"
 echo "::set-output name=tag::$NEW"
 echo "::set-output name=version::$VERSION"
 

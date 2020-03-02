@@ -21,8 +21,6 @@ inputs:
     required: false
     default: 'true'
 outputs:
-  new_tag:
-    description: 'The generated tag (including prefix)'
   tag:
     description: 'The latest tag after running this action'
   version:
