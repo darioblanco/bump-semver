@@ -2,7 +2,6 @@
 
 # config
 DEFAULT_BUMP=${INPUT_DEFAULT_BUMP:-patch}
-WITH_V=${INPUT_WITH_V:-true}
 PREFIX=${INPUT_PREFIX}
 
 # fetch tags
@@ -12,20 +11,14 @@ git fetch --tags
 REFLIST=$(git rev-list --tags --max-count=1)
 if [ -n "$PREFIX" ]
 then
-    TAG=$(git describe --tags --match "$PREFIX-*" "$REFLIST")
+    TAG=$(git describe --tags --match "$PREFIX*" "$REFLIST")
     # Remove prefix from semantic version field
-    VERSION=${TAG//${PREFIX}-/}
+    VERSION=${TAG//${PREFIX}/}
 else
     TAG=$(git describe --tags "$REFLIST")
     VERSION=TAG
 fi
 TAG_COMMIT=$(git rev-list -n 1 "$TAG")
-
-# Remove `v` from semantic version field
-if $WITH_V
-then
-    VERSION=${VERSION//v/}
-fi
 
 # get current commit hash for tag
 COMMIT=$(git rev-parse HEAD)
@@ -48,24 +41,18 @@ fi
 # get commit logs and determine home to bump the version
 # supports #major, #minor, #patch (anything else will be 'minor')
 case "$LOG" in
-    *#major* ) VERSION=$(semver bump major $VERSION);;
-    *#minor* ) VERSION=$(semver bump minor $VERSION);;
-    *#patch* ) VERSION=$(semver bump patch $VERSION);;
-    * ) VERSION=$(semver bump $DEFAULT_BUMP $VERSION);;
+    *#major* ) VERSION=$(semver bump major "$VERSION");;
+    *#minor* ) VERSION=$(semver bump minor "$VERSION");;
+    *#patch* ) VERSION=$(semver bump patch "$VERSION");;
+    * ) VERSION=$(semver bump "$DEFAULT_BUMP" "$VERSION");;
 esac
 
 NEW=$VERSION
 
-# prefix with 'v'
-if $WITH_V
-then
-    NEW="v$NEW"
-fi
-
 # prefix with custom string
 if [ -n "$PREFIX" ]
 then
-    NEW="$PREFIX-$NEW"
+    NEW="$PREFIX$NEW"
 fi
 
 echo "$NEW"

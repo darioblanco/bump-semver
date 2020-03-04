@@ -20,7 +20,7 @@ jobs:
       uses: minddocdev/github-tag-action@master
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        withV: true
+        prefix: mygroup/
 ```
 
 ### Options
@@ -31,8 +31,7 @@ jobs:
 * **defaultBump** *(optional)* - Which type of bump to use when none explicitly
 provided (default: `patch`).
 * **prefix** *(optional)* - Appends the given prefix to the tag
-(e.g. PREFIX=myprefix would create a myprefix-1.0.0 tag)
-* **withV** *(optional)* - Tag version with `v` character.
+(e.g. PREFIX=myprefix-v would create a myprefix-v1.0.0 tag)
 
 ### Outputs
 

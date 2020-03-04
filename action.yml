@@ -16,10 +16,6 @@ inputs:
   token:
     description: 'The Github Token to be used to authenticate with Github'
     required: true
-  withV:
-    description: ''
-    required: false
-    default: 'true'
 outputs:
   tag:
     description: 'The latest tag after running this action'
