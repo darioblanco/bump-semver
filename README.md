@@ -1,4 +1,4 @@
-# github-tag-action
+# MOU Version Action
 
 A Github Action to automatically bump and tag master with the latest
 SemVer formatted version.
@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Bump version and push tag
-      uses: minddocdev/github-tag-action@v1.0.0
+      uses: minddocdev/mou-version-action@v1.0.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         prefix: mygroup/

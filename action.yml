@@ -1,5 +1,5 @@
-name: 'Github Tag Bump'
-description: 'Bump and push git tag on merge'
+name: 'MOU Version'
+description: 'Bump and push semantic version and create a git tag'
 author: 'MindDoc Health GmbH'
 runs:
   using: 'docker'
