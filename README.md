@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Bump version and push tag
-      uses: minddocdev/github-tag-action@master
+      uses: minddocdev/github-tag-action@v1.0.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         prefix: mygroup/
@@ -64,4 +64,5 @@ the commit messages, it will bump whichever `DEFAULT_BUMP` is set to (which is `
 ## Credits
 
 [fsaintjacques/semver-tool](https://github.com/fsaintjacques/semver-tool)
+
 [anothrNick/github-tag-action](https://github.com/anothrNick/github-tag-action)
