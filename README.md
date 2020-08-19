@@ -32,6 +32,9 @@ jobs:
 provided (default: `patch`).
 * **prefix** *(optional)* - Appends the given prefix to the tag
 (e.g. PREFIX=myprefix-v would create a myprefix-v1.0.0 tag)
+* **npm** *(optional)* - Update version in package.json file (default: `false`).
+* **packageJsonPath** *(optional)* - Specify the path of the package.json file
+(default: `package.json`).
 
 ### Outputs
 

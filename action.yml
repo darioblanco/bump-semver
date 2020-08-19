@@ -9,6 +9,14 @@ inputs:
     description: 'The semantic versioning bump (major, minor or patch)'
     required: false
     default: 'patch'
+  npm:
+    description: 'Update version in package.json file'
+    required: false
+    default: 'false'
+  packageJsonPath:
+    description: 'Specify package.json path'
+    required: false
+    default: 'package.json'
   prefix:
     description: 'The prefix for the tag'
     required: false
