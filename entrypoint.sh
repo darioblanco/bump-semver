@@ -3,6 +3,8 @@
 # config
 DEFAULT_BUMP=${INPUT_DEFAULT_BUMP:-patch}
 PREFIX=${INPUT_PREFIX}
+NPM=${INPUT_NPM}
+PACKAGE_JSON_PATH=${INPUT_PACKAGE_JSON_PATH}
 
 # fetch tags
 git fetch --tags
@@ -60,6 +62,11 @@ echo "$NEW"
 # set outputs
 echo "::set-output name=tag::$NEW"
 echo "::set-output name=version::$VERSION"
+
+if [[ "$NPM" = true  && -f "$PACKAGE_JSON_PATH" ]]; then
+    # update package.json
+    jq ".version = \"$VERSION\"" "$PACKAGE_JSON_PATH" > "tmp" && mv "tmp" "$PACKAGE_JSON_PATH"
+fi
 
 # push new tag ref to github
 DT=$(date '+%Y-%m-%dT%H:%M:%SZ')
