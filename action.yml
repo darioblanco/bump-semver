@@ -1,6 +1,6 @@
-name: 'MOU Version'
+name: 'Bump SemVer'
 description: 'Bump and push semantic version and create a git tag'
-author: 'MindDoc Health GmbH'
+author: 'Dario Blanco Iturriaga'
 runs:
   using: 'docker'
   image: 'Dockerfile'
