@@ -1,4 +1,4 @@
-# MOU Version Action
+# Bump Semver
 
 A Github Action to automatically bump and tag master with the latest
 SemVer formatted version.
@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Bump version and push tag
-      uses: minddocdev/mou-version-action@v1.0.0
+      uses: darioblanco/bump-semver@v1.0.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         prefix: mygroup/
@@ -65,6 +65,8 @@ the commit messages, it will bump whichever `DEFAULT_BUMP` is set to (which is `
   * Pushes tag to github
 
 ## Credits
+
+[minddocdev/mou-version-action](https://github.com/minddocdev/mou-version-action)
 
 [fsaintjacques/semver-tool](https://github.com/fsaintjacques/semver-tool)
 
