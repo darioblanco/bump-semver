@@ -50,7 +50,7 @@ or `#patch` will trigger the respective version bump.
 If two or more are present, the highest-ranking one will take precedence.
 
 **Automatic Bumping:** If no `#major`, `#minor` or `#patch` tag is contained in
-the commit messages, it will bump whichever `DEFAULT_BUMP` is set to (which is `minor` by default).
+the commit messages, it will bump whichever `DEFAULT_BUMP` is set to (which is `patch` by default).
 
 > ***Note:*** This action **will not** bump the tag if the `HEAD` commit has already been tagged.
 
