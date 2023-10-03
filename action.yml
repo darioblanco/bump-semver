@@ -1,4 +1,4 @@
-name: 'Bump SemVer'
+name: 'Bump SemVer without default'
 description: 'Bump and push semantic version and create a git tag'
 author: 'Dario Blanco Iturriaga and Alexis Jasso'
 runs:
