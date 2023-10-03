@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Bump version and push tag
-      uses: AlexisJasso/bump-semver@v1.0.2
+      uses: AlexisJasso/bump-semver@v1.0.3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         prefix: mygroup/

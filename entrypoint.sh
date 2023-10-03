@@ -5,6 +5,8 @@ PREFIX=${INPUT_PREFIX}
 NPM=${INPUT_NPM}
 PACKAGE_JSON_PATH=${INPUT_PACKAGE_JSON_PATH}
 
+git config --global --add safe.directory $PWD
+
 # fetch tags
 git fetch --tags
 
@@ -26,7 +28,7 @@ COMMIT=$(git rev-parse HEAD)
 
 if [ "$TAG_COMMIT" == "$COMMIT" ]; then
     echo "No new commits since previous tag. Skipping..."
-    echo "::set-output name=tag::$TAG"
+    echo "tag=$TAG" >> $GITHUB_OUTPUT
     exit 0
 fi
 
@@ -59,8 +61,8 @@ fi
 echo "$NEW"
 
 # set outputs
-echo "::set-output name=tag::$NEW"
-echo "::set-output name=version::$VERSION"
+echo "tag=$NEW" >> $GITHUB_OUTPUT
+echo "version=$VERSION" >> $GITHUB_OUTPUT
 
 if [[ "$NPM" = true  && -f "$PACKAGE_JSON_PATH" ]]; then
     # update package.json
