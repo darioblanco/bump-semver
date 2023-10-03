@@ -1,14 +1,10 @@
 name: 'Bump SemVer'
 description: 'Bump and push semantic version and create a git tag'
-author: 'Dario Blanco Iturriaga'
+author: 'Dario Blanco Iturriaga and Alexis Jasso'
 runs:
   using: 'docker'
   image: 'Dockerfile'
 inputs:
-  defaultBump:
-    description: 'The semantic versioning bump (major, minor or patch)'
-    required: false
-    default: 'patch'
   npm:
     description: 'Update version in package.json file'
     required: false

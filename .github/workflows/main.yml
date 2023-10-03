@@ -2,12 +2,12 @@ name: Bump version
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Bump version and push tag
       uses: minddocdev/github-tag-action@master
       with:

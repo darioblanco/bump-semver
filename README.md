@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Bump version and push tag
-      uses: darioblanco/bump-semver@v1.0.0
+      uses: AlexisJasso/bump-semver@v1.0.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         prefix: mygroup/
@@ -28,8 +28,6 @@ jobs:
 ### Input Variables
 
 * **token** ***(required)*** - Required for permission to tag the repo.
-* **defaultBump** *(optional)* - Which type of bump to use when none explicitly
-provided (default: `patch`).
 * **prefix** *(optional)* - Appends the given prefix to the tag
 (e.g. PREFIX=myprefix-v would create a myprefix-v1.0.0 tag)
 * **npm** *(optional)* - Update version in package.json file (default: `false`).
@@ -50,7 +48,7 @@ or `#patch` will trigger the respective version bump.
 If two or more are present, the highest-ranking one will take precedence.
 
 **Automatic Bumping:** If no `#major`, `#minor` or `#patch` tag is contained in
-the commit messages, it will bump whichever `DEFAULT_BUMP` is set to (which is `patch` by default).
+the commit messages, no tag will be created.
 
 > ***Note:*** This action **will not** bump the tag if the `HEAD` commit has already been tagged.
 
@@ -71,3 +69,5 @@ the commit messages, it will bump whichever `DEFAULT_BUMP` is set to (which is `
 [fsaintjacques/semver-tool](https://github.com/fsaintjacques/semver-tool)
 
 [anothrNick/github-tag-action](https://github.com/anothrNick/github-tag-action)
+
+[darioblanco/bump-semver](https://github.com/darioblanco/bump-semver)

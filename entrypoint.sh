@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # config
-DEFAULT_BUMP=${INPUT_DEFAULT_BUMP:-patch}
 PREFIX=${INPUT_PREFIX}
 NPM=${INPUT_NPM}
 PACKAGE_JSON_PATH=${INPUT_PACKAGE_JSON_PATH}
@@ -46,7 +45,7 @@ case "$LOG" in
     *#${PREFIX}major* ) VERSION=$(semver bump major "$VERSION");;
     *#${PREFIX}minor* ) VERSION=$(semver bump minor "$VERSION");;
     *#${PREFIX}patch* ) VERSION=$(semver bump patch "$VERSION");;
-    * ) VERSION=$(semver bump "$DEFAULT_BUMP" "$VERSION");;
+    * ) exit 0 ;;
 esac
 
 NEW=$VERSION
